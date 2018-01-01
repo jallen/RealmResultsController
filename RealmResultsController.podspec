@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "RealmResultsController"
-  s.version      = "0.5.0"
+  s.version      = "0.5.1"
   s.summary      = "A NSFetchedResultsController implementation for Realm written in Swift"
   s.homepage     = "https://github.com/redbooth/RealmResultsController"
   s.license      = 'MIT'
