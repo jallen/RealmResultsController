@@ -222,7 +222,7 @@ public class RealmResultsController<T: RealmSwift.Object, U> : RealmResultsCache
     // At this point, we are sure sorts.first always has a SortDescriptor
     private func keyPathIsValid(_ keyPath: String?, sorts: [RealmSwift.SortDescriptor]) -> Bool {
         if keyPath == nil { return true }
-        return keyPath == sorts.first!.property
+        return keyPath == sorts.first!.keyPath
     }
     
     private func realmSectionMapper<S>(_ section: Section<S>) -> RealmSection<U> {

@@ -1,0 +1,43 @@
+{
+  "Mac" : [
+    {
+      "name" : "RealmSwift",
+      "hash" : "ea9bc6f501cd0d273390d45b5f2eaf1ac12cf3efe78d46f68d4bea872fa1c4ac"
+    },
+    {
+      "name" : "Realm",
+      "hash" : "a4a811f67e3ecbd6ad6b4b25b030381581e73b38e3211be33707d772e475515d"
+    }
+  ],
+  "watchOS" : [
+    {
+      "name" : "RealmSwift",
+      "hash" : "d198bce52477835aa43784c3d692fb278f2985fd74afb35aba479aed70e364ad"
+    },
+    {
+      "name" : "Realm",
+      "hash" : "c6e7ef954e727d8281b2e5ebca4f17217eb479d6d900b68ccf2bc01076226c59"
+    }
+  ],
+  "tvOS" : [
+    {
+      "name" : "RealmSwift",
+      "hash" : "a1065d911812716dd8d4cc266dd3b1e7a7b882e70302a3d9b4bacb6af8a412ee"
+    },
+    {
+      "name" : "Realm",
+      "hash" : "e947d2955f70693d1c0e711900ad1e14b8e1489509575c23bda9a15902dfb784"
+    }
+  ],
+  "commitish" : "v2.8.2",
+  "iOS" : [
+    {
+      "name" : "RealmSwift",
+      "hash" : "a952656c014db34761db1957a990aa317052172f19b5eee883eeba18c54ec3c2"
+    },
+    {
+      "name" : "Realm",
+      "hash" : "befd54b94a7c6341adbb6718898e1e3272f5e6f08846782eed37a1ac118ac798"
+    }
+  ]
+}
