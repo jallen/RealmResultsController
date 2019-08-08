@@ -109,8 +109,8 @@ class RealmQueueManagerSpec: QuickSpec {
                     let date = Date().addingTimeInterval(1)
                     let timer1 = Timer(fireAt: date, interval: 0, target: self, selector: #selector(RealmQueueManagerSpec.fireThread1Block), userInfo: nil, repeats: false)
                     let timer2 = Timer(fireAt: date, interval: 0, target: self, selector: #selector(RealmQueueManagerSpec.fireThread2Block), userInfo: nil, repeats: false)
-                    RunLoop.current.add(timer1, forMode: RunLoopMode.defaultRunLoopMode)
-                    RunLoop.current.add(timer2, forMode: RunLoopMode.defaultRunLoopMode)
+                    RunLoop.current.add(timer1, forMode: RunLoop.Mode.default)
+                    RunLoop.current.add(timer2, forMode: RunLoop.Mode.default)
                 }
                 it("should have executed only one block") {
                     expect(self.oneBlockFired()).toEventually(beTruthy(), timeout: 2)

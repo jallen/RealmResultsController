@@ -43,7 +43,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.realm.deleteAll()
         }
         populateDB()
-        let request = RealmRequest<TaskModelObject>(predicate: NSPredicate(value: true), realm: realm, sortDescriptors: [RealmSwift.SortDescriptor(property: "projectID")  , RealmSwift.SortDescriptor(property: "name")])
+        let request = RealmRequest<TaskModelObject>(predicate: NSPredicate(value: true), realm: realm, sortDescriptors: [RealmSwift.SortDescriptor(keyPath: "projectID")  , RealmSwift.SortDescriptor(keyPath: "name")])
         rrc = try! RealmResultsController<TaskModelObject, TaskObject>(request: request, sectionKeyPath: "projectID", mapper: TaskObject.map)
         rrc!.delegate = self
         rrc!.performFetch()
@@ -110,7 +110,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let height: CGFloat = 50
         button.frame = CGRect(x: 0, y: view.frame.height - height, width: view.frame.width, height: height)
         button.backgroundColor = UIColor.red
-        button.setTitle("Add Row", for: UIControlState())
+        button.setTitle("Add Row", for: UIControl.State())
         button.addTarget(self, action: #selector(addNewObject), for: .touchUpInside)
         view.addSubview(button)
 
@@ -120,7 +120,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         view.addSubview(tableView)
     }
 
-    func addNewObject() {
+    @objc func addNewObject() {
         let projectID = Int(arc4random_uniform(3))
         
         let queue: DispatchQueue = DispatchQueue(label: "label", attributes: [])
@@ -191,17 +191,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         print("🎁 didChangeObject '\((object as! TaskModelObject).name)' from: [\(oldIndexPath.section):\(oldIndexPath.row)] to: [\(newIndexPath.section):\(newIndexPath.row)] --> \(changeType)")
         switch changeType {
         case .Delete:
-            tableView.deleteRows(at: [newIndexPath], with: UITableViewRowAnimation.automatic)
+            tableView.deleteRows(at: [newIndexPath], with: UITableView.RowAnimation.automatic)
             break
         case .Insert:
-            tableView.insertRows(at: [newIndexPath], with: UITableViewRowAnimation.automatic)
+            tableView.insertRows(at: [newIndexPath], with: UITableView.RowAnimation.automatic)
             break
         case .Move:
-            tableView.deleteRows(at: [oldIndexPath], with: UITableViewRowAnimation.automatic)
-            tableView.insertRows(at: [newIndexPath], with: UITableViewRowAnimation.automatic)
+            tableView.deleteRows(at: [oldIndexPath], with: UITableView.RowAnimation.automatic)
+            tableView.insertRows(at: [newIndexPath], with: UITableView.RowAnimation.automatic)
             break
         case .Update:
-            tableView.reloadRows(at: [newIndexPath], with: UITableViewRowAnimation.automatic)
+            tableView.reloadRows(at: [newIndexPath], with: UITableView.RowAnimation.automatic)
             break
         }
     }
@@ -210,10 +210,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         print("🎁 didChangeSection \(index) --> \(changeType)")
         switch changeType {
         case .Delete:
-            tableView.deleteSections(IndexSet(integer: index), with: UITableViewRowAnimation.automatic)
+            tableView.deleteSections(IndexSet(integer: index), with: UITableView.RowAnimation.automatic)
             break
         case .Insert:
-            tableView.insertSections(IndexSet(integer: index), with: UITableViewRowAnimation.automatic)
+            tableView.insertSections(IndexSet(integer: index), with: UITableView.RowAnimation.automatic)
             break
         default:
             break

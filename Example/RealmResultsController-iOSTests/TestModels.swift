@@ -16,11 +16,11 @@ func NewTask(_ id: Int) -> Task {
 }
 
 class Task: RealmSwift.Object {
-    dynamic var id = 0
-    dynamic var name = ""
-    dynamic var resolved = false
-    dynamic var projectID = 0
-    dynamic var user: User?
+    @objc dynamic var id = 0
+    @objc dynamic var name = ""
+    @objc dynamic var resolved = false
+    @objc dynamic var projectID = 0
+    @objc dynamic var user: User?
     
     override static func primaryKey() -> String? {
         return "id"
@@ -46,11 +46,11 @@ class Task: RealmSwift.Object {
 }
 
 class TaskModel: RealmSwift.Object {
-    dynamic var id = 0
-    dynamic var name = ""
-    dynamic var resolved = false
-    dynamic var projectID = 0
-    dynamic var user: User?
+    @objc dynamic var id = 0
+    @objc dynamic var name = ""
+    @objc dynamic var resolved = false
+    @objc dynamic var projectID = 0
+    @objc dynamic var user: User?
     
     override static func primaryKey() -> String? {
         return "id"
@@ -58,9 +58,9 @@ class TaskModel: RealmSwift.Object {
 }
 
 class User: RealmSwift.Object {
-    dynamic var id = 0
-    dynamic var name = ""
-    dynamic var avatarURL = ""
+    @objc dynamic var id = 0
+    @objc dynamic var name = ""
+    @objc dynamic var avatarURL = ""
     
     override static func primaryKey() -> String? {
         return "id"
@@ -68,9 +68,9 @@ class User: RealmSwift.Object {
 }
 
 class Project: RealmSwift.Object {
-    dynamic var id = 0
-    dynamic var name = ""
-    dynamic var projectDrescription = ""
+    @objc dynamic var id = 0
+    @objc dynamic var name = ""
+    @objc dynamic var projectDrescription = ""
     
     override static func primaryKey() -> String? {
         return "id"
@@ -78,6 +78,6 @@ class Project: RealmSwift.Object {
 }
 
 class Dummy: RealmSwift.Object {
-    dynamic var id: Int = 0
-    dynamic var optionalNilValue: Project?
+    @objc dynamic var id: Int = 0
+    @objc dynamic var optionalNilValue: Project?
 }

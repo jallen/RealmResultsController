@@ -52,7 +52,7 @@ class RealmResultsControllerSpec: QuickSpec {
             RealmTestHelper.loadRealm()
             realm = try! Realm()
             let predicate = NSPredicate(value: true)
-            request = RealmRequest<Task>(predicate: predicate, realm: realm, sortDescriptors: [RealmSwift.SortDescriptor(property: "id")])
+            request = RealmRequest<Task>(predicate: predicate, realm: realm, sortDescriptors: [RealmSwift.SortDescriptor(keyPath: "id")])
             RRC = try! RealmResultsController<Task, Task>(forTESTRequest: request, sectionKeyPath: nil) { $0 }
             RRC.delegate = RRCDelegate
         }
@@ -103,7 +103,7 @@ class RealmResultsControllerSpec: QuickSpec {
                 var createdRRC: RealmResultsController<Task, TaskModel>!
                 var sameType: Bool = false
                 beforeEach {
-                    let request = RealmRequest<Task>(predicate: NSPredicate(value: true), realm: realm, sortDescriptors: [RealmSwift.SortDescriptor(property: "id")])
+                    let request = RealmRequest<Task>(predicate: NSPredicate(value: true), realm: realm, sortDescriptors: [RealmSwift.SortDescriptor(keyPath: "id")])
                     createdRRC = try! RealmResultsController<Task, TaskModel>(request: request, sectionKeyPath: nil, mapper: Task.mapTask)
                     createdRRC.performFetch()
                     let object = createdRRC.object(at: IndexPath(row: 0, section: 0))
@@ -119,7 +119,7 @@ class RealmResultsControllerSpec: QuickSpec {
                 
                 beforeEach {
                     do  {
-                        let request = RealmRequest<Task>(predicate: NSPredicate(value: true), realm: realm, sortDescriptors: [RealmSwift.SortDescriptor(property: "name")])
+                        let request = RealmRequest<Task>(predicate: NSPredicate(value: true), realm: realm, sortDescriptors: [RealmSwift.SortDescriptor(keyPath: "name")])
                         let _ = try RealmResultsController<Task, TaskModel>(request: request, sectionKeyPath: "something", mapper: Task.mapTask)
                     } catch {
                         exceptionDetected = true

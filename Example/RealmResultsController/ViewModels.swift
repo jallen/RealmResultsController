@@ -11,19 +11,17 @@ import RealmSwift
 
 
 class TaskObject: RealmSwift.Object {
-    dynamic var id = 0
-    dynamic var name = ""
-    dynamic var resolved = false
-    dynamic var projectID = 0
-    dynamic var user: UserObject?
+    @objc dynamic var id = 0
+    @objc dynamic var name = ""
+    @objc dynamic var resolved = false
+    @objc dynamic var projectID = 0
+    @objc dynamic var user: UserObject?
     
     override static func primaryKey() -> String? {
         return "id"
     }
     
-    lazy var something: Bool = {
-        true
-    }()
+    @objc dynamic var something: Bool = true
     
     static func map(_ model: TaskModelObject) -> TaskObject {
         let task = TaskObject()
@@ -45,25 +43,23 @@ class TaskObject: RealmSwift.Object {
 }
 
 class TaskModelObject: RealmSwift.Object {
-    dynamic var id = 0
-    dynamic var name = ""
-    dynamic var resolved = false
-    dynamic var projectID = 0
-    dynamic var user: UserObject?
+    @objc dynamic var id = 0
+    @objc dynamic var name = ""
+    @objc dynamic var resolved = false
+    @objc dynamic var projectID = 0
+    @objc dynamic var user: UserObject?
     
     override static func primaryKey() -> String? {
         return "id"
     }
     
-    lazy var something: Bool = {
-        true
-    }()
+    @objc dynamic var something: Bool = true
 }
 
 class UserObject: RealmSwift.Object {
-    dynamic var id = 0
-    dynamic var name = ""
-    dynamic var avatarURL = ""
+    @objc dynamic var id = 0
+    @objc dynamic var name = ""
+    @objc dynamic var avatarURL = ""
     
     override static func primaryKey() -> String? {
         return "id"
@@ -71,9 +67,9 @@ class UserObject: RealmSwift.Object {
 }
 
 class ProjectObject: RealmSwift.Object {
-    dynamic var id = 0
-    dynamic var name = ""
-    dynamic var projectDrescription = ""
+    @objc dynamic var id = 0
+    @objc dynamic var name = ""
+    @objc dynamic var projectDrescription = ""
     
     override static func primaryKey() -> String? {
         return "id"
@@ -81,6 +77,6 @@ class ProjectObject: RealmSwift.Object {
 }
 
 class DummyObject: RealmSwift.Object {
-    dynamic var id: Int = 0
-    dynamic var optionalNilValue: ProjectObject?
+    @objc dynamic var id: Int = 0
+    @objc dynamic var optionalNilValue: ProjectObject?
 }

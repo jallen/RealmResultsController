@@ -275,6 +275,6 @@ class RealmResultsCache<T: Object> {
     :returns: NSSortDescriptor
     */
     private func toNSSortDescriptor(_ sort: SortDescriptor) -> NSSortDescriptor {
-        return NSSortDescriptor(key: sort.property, ascending: sort.ascending)
+        return NSSortDescriptor(key: sort.keyPath, ascending: sort.ascending)
     }
 }
