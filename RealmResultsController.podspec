@@ -5,8 +5,8 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/redbooth/RealmResultsController"
   s.license      = 'MIT'
   s.author       = "Redbooth"
-  s.source       = { :git => "https://github.com/redbooth/RealmResultsController.git", :tag => "0.5.0" }
-  s.platform     = :ios, '11.0'
+  s.source       = { :git => "https://github.com/jallen/RealmResultsController.git", :tag => "0.5.2" }
+  s.platform     = :ios, '10.0'
   s.source_files = 'Source'
   s.frameworks   = 'UIKit'
   s.requires_arc = true
