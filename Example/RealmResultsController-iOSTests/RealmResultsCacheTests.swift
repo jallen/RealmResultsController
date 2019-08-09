@@ -69,11 +69,7 @@ class CacheSpec: QuickSpec {
         
         func initWithKeypath() {
             predicate = NSPredicate(format: "id < %d", 50)
-<<<<<<< Updated upstream
-            sortDescriptors = [RealmSwift.SortDescriptor(property: "name", ascending: true)]
-=======
             sortDescriptors = [SortDescriptor(keyPath: "name", ascending: true)]
->>>>>>> Stashed changes
             request = RealmRequest<Task>(predicate: predicate, realm: realm, sortDescriptors: sortDescriptors)
             initialObjects = request.execute().toArray().sorted { $0.name < $1.name }
             resolvedTasks = initialObjects.filter { $0.resolved }
