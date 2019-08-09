@@ -191,8 +191,8 @@ extension Results {
     
     - returns Array<T>
     */
-    func toArray() -> [T] {
-        var array = [T]()
+    func toArray() -> [Element] {
+        var array = Array<Element>()
         for result in self {
             array.append(result)
         }
